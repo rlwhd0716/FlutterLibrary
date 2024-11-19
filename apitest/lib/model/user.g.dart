@@ -11,24 +11,34 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = User(
-          regNo: $checkedConvert('userRegNo', (v) => v as String?),
-          telNo: $checkedConvert('userTelno', (v) => v as String?),
-          name: $checkedConvert('userNm', (v) => v as String?),
-          fcmToken: $checkedConvert('fcmTkn', (v) => v as String?),
+          id: $checkedConvert('id', (v) => (v as num?)?.toInt()),
+          name: $checkedConvert('name', (v) => v as String?),
+          username: $checkedConvert('username', (v) => v as String?),
+          email: $checkedConvert('email', (v) => v as String?),
+          address: $checkedConvert(
+              'address',
+              (v) => v == null
+                  ? null
+                  : Address.fromJson(v as Map<String, dynamic>)),
+          phone: $checkedConvert('phone', (v) => v as String?),
+          website: $checkedConvert('website', (v) => v as String?),
+          company: $checkedConvert(
+              'company',
+              (v) => v == null
+                  ? null
+                  : Company.fromJson(v as Map<String, dynamic>)),
         );
         return val;
-      },
-      fieldKeyMap: const {
-        'regNo': 'userRegNo',
-        'telNo': 'userTelno',
-        'name': 'userNm',
-        'fcmToken': 'fcmTkn'
       },
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
-      'userRegNo': instance.regNo,
-      'userTelno': instance.telNo,
-      'userNm': instance.name,
-      'fcmTkn': instance.fcmToken,
+      'id': instance.id,
+      'name': instance.name,
+      'username': instance.username,
+      'email': instance.email,
+      'address': instance.address,
+      'phone': instance.phone,
+      'website': instance.website,
+      'company': instance.company,
     };

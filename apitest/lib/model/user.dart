@@ -1,26 +1,38 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'address.dart';
+import 'company.dart';
+
 part 'user.g.dart';
 
 @JsonSerializable(checked: true, createFactory: true)
 class User {
-  @JsonKey(name: 'userRegNo')
-  String? regNo;
-
-  @JsonKey(name: 'userTelno')
-  String? telNo;
-
-  @JsonKey(name: 'userNm')
+  @JsonKey(name: 'id')
+  int? id;
+  @JsonKey(name: 'name')
   String? name;
-
-  @JsonKey(name: 'fcmTkn')
-  String? fcmToken;
+  @JsonKey(name: 'username')
+  String? username;
+  @JsonKey(name: 'email')
+  String? email;
+  @JsonKey(name: 'address')
+  Address? address;
+  @JsonKey(name: 'phone')
+  String? phone;
+  @JsonKey(name: 'website')
+  String? website;
+  @JsonKey(name: 'company')
+  Company? company;
 
   User({
-    this.regNo,
-    this.telNo,
+    this.id,
     this.name,
-    this.fcmToken,
+    this.username,
+    this.email,
+    this.address,
+    this.phone,
+    this.website,
+    this.company,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
