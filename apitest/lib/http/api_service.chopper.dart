@@ -18,16 +18,31 @@ final class _$ApiService extends ApiService {
   final Type definitionType = ApiService;
 
   @override
-  Future<Response<List<User>>> getUsers() {
+  Future<Response<List<UserData>>> getUsers() {
     final Uri $url = Uri.parse('/users');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<List<User>, User>(
+    return client.send<List<UserData>, UserData>(
       $request,
-      responseConverter: UserListConverter.response,
+      responseConverter: ResponseConverter.usersResponse,
+    );
+  }
+
+  @override
+  Future<Response<List<Posts>>> getPosts() {
+    final Uri $url = Uri.parse('/posts');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+    );
+
+    return client.send<List<Posts>, Posts>(
+      $request,
+      responseConverter: ResponseConverter.postsResponse,
     );
   }
 }

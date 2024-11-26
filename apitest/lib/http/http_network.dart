@@ -1,7 +1,7 @@
 // import 'dart:convert';
 //
 // import 'package:apitest/model/login.dart';
-// import 'package:apitest/model/user.dart';
+// import 'package:apitest/model/user_data.dart';
 // import 'package:apitest/util/server_info.dart';
 // import 'package:http/http.dart' as http;
 //

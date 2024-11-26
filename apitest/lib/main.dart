@@ -1,5 +1,4 @@
 import 'package:apitest/http/api_service.dart';
-import 'package:apitest/model/User.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,13 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
             child: CircularProgressIndicator(),
           );
         } else if (snapshot.hasError) {
-          return const Text('오류');
+          return Text('오류 ${snapshot.error}');
         }
-        final data = snapshot.data! as List<User>;
+        final data = snapshot.data?.body;
 
+        // return Text('$data');
         return ListView.separated(
           scrollDirection: Axis.vertical,
-          itemCount: data.length,
+          itemCount: data!.length,
           itemBuilder: (context, index) {
             var user = data[index];
             return Text(user.name ?? '');
