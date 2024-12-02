@@ -20,14 +20,7 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserData {
-  int? get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get username => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
-  Address? get address => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get website => throw _privateConstructorUsedError;
-  Company? get company => throw _privateConstructorUsedError;
+  bool? get isOverlap => throw _privateConstructorUsedError;
 
   /// Serializes this UserData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,18 +37,7 @@ abstract class $UserDataCopyWith<$Res> {
   factory $UserDataCopyWith(UserData value, $Res Function(UserData) then) =
       _$UserDataCopyWithImpl<$Res, UserData>;
   @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      String? username,
-      String? email,
-      Address? address,
-      String? phone,
-      String? website,
-      Company? company});
-
-  $AddressCopyWith<$Res>? get address;
-  $CompanyCopyWith<$Res>? get company;
+  $Res call({bool? isOverlap});
 }
 
 /// @nodoc
@@ -73,77 +55,14 @@ class _$UserDataCopyWithImpl<$Res, $Val extends UserData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? address = freezed,
-    Object? phone = freezed,
-    Object? website = freezed,
-    Object? company = freezed,
+    Object? isOverlap = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      website: freezed == website
-          ? _value.website
-          : website // ignore: cast_nullable_to_non_nullable
-              as String?,
-      company: freezed == company
-          ? _value.company
-          : company // ignore: cast_nullable_to_non_nullable
-              as Company?,
+      isOverlap: freezed == isOverlap
+          ? _value.isOverlap
+          : isOverlap // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
-  }
-
-  /// Create a copy of UserData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $AddressCopyWith<$Res>? get address {
-    if (_value.address == null) {
-      return null;
-    }
-
-    return $AddressCopyWith<$Res>(_value.address!, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-
-  /// Create a copy of UserData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $CompanyCopyWith<$Res>? get company {
-    if (_value.company == null) {
-      return null;
-    }
-
-    return $CompanyCopyWith<$Res>(_value.company!, (value) {
-      return _then(_value.copyWith(company: value) as $Val);
-    });
   }
 }
 
@@ -155,20 +74,7 @@ abstract class _$$UserDataImplCopyWith<$Res>
       __$$UserDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int? id,
-      String? name,
-      String? username,
-      String? email,
-      Address? address,
-      String? phone,
-      String? website,
-      Company? company});
-
-  @override
-  $AddressCopyWith<$Res>? get address;
-  @override
-  $CompanyCopyWith<$Res>? get company;
+  $Res call({bool? isOverlap});
 }
 
 /// @nodoc
@@ -184,48 +90,13 @@ class __$$UserDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
-    Object? address = freezed,
-    Object? phone = freezed,
-    Object? website = freezed,
-    Object? company = freezed,
+    Object? isOverlap = freezed,
   }) {
     return _then(_$UserDataImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as Address?,
-      phone: freezed == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      website: freezed == website
-          ? _value.website
-          : website // ignore: cast_nullable_to_non_nullable
-              as String?,
-      company: freezed == company
-          ? _value.company
-          : company // ignore: cast_nullable_to_non_nullable
-              as Company?,
+      isOverlap: freezed == isOverlap
+          ? _value.isOverlap
+          : isOverlap // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -233,39 +104,17 @@ class __$$UserDataImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserDataImpl implements _UserData {
-  _$UserDataImpl(
-      {required this.id,
-      required this.name,
-      required this.username,
-      required this.email,
-      required this.address,
-      required this.phone,
-      required this.website,
-      required this.company});
+  _$UserDataImpl({required this.isOverlap});
 
   factory _$UserDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserDataImplFromJson(json);
 
   @override
-  final int? id;
-  @override
-  final String? name;
-  @override
-  final String? username;
-  @override
-  final String? email;
-  @override
-  final Address? address;
-  @override
-  final String? phone;
-  @override
-  final String? website;
-  @override
-  final Company? company;
+  final bool? isOverlap;
 
   @override
   String toString() {
-    return 'UserData(id: $id, name: $name, username: $username, email: $email, address: $address, phone: $phone, website: $website, company: $company)';
+    return 'UserData(isOverlap: $isOverlap)';
   }
 
   @override
@@ -273,21 +122,13 @@ class _$UserDataImpl implements _UserData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserDataImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.address, address) || other.address == address) &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.website, website) || other.website == website) &&
-            (identical(other.company, company) || other.company == company));
+            (identical(other.isOverlap, isOverlap) ||
+                other.isOverlap == isOverlap));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, username, email, address, phone, website, company);
+  int get hashCode => Object.hash(runtimeType, isOverlap);
 
   /// Create a copy of UserData
   /// with the given fields replaced by the non-null parameter values.
@@ -306,35 +147,13 @@ class _$UserDataImpl implements _UserData {
 }
 
 abstract class _UserData implements UserData {
-  factory _UserData(
-      {required final int? id,
-      required final String? name,
-      required final String? username,
-      required final String? email,
-      required final Address? address,
-      required final String? phone,
-      required final String? website,
-      required final Company? company}) = _$UserDataImpl;
+  factory _UserData({required final bool? isOverlap}) = _$UserDataImpl;
 
   factory _UserData.fromJson(Map<String, dynamic> json) =
       _$UserDataImpl.fromJson;
 
   @override
-  int? get id;
-  @override
-  String? get name;
-  @override
-  String? get username;
-  @override
-  String? get email;
-  @override
-  Address? get address;
-  @override
-  String? get phone;
-  @override
-  String? get website;
-  @override
-  Company? get company;
+  bool? get isOverlap;
 
   /// Create a copy of UserData
   /// with the given fields replaced by the non-null parameter values.

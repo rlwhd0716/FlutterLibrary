@@ -18,16 +18,22 @@ final class _$ApiService extends ApiService {
   final Type definitionType = ApiService;
 
   @override
-  Future<Response<List<UserData>>> getUsers() {
-    final Uri $url = Uri.parse('/users');
+  Future<Response<BaseResponse>> getUsers(String id) {
+    final Uri $url = Uri.parse('/ELSM_MS/user/overlap/id');
+    final Map<String, String> $headers = {
+      'content-type': 'application/x-www-form-urlencoded',
+    };
+    final $body = <String, String>{'userId': id.toString()};
     final Request $request = Request(
-      'GET',
+      'POST',
       $url,
       client.baseUrl,
+      body: $body,
+      headers: $headers,
     );
-    return client.send<List<UserData>, UserData>(
+    return client.send<BaseResponse, BaseResponse>(
       $request,
-      responseConverter: ResponseConverter.usersResponse,
+      responseConverter: ResponseConverter.response,
     );
   }
 
@@ -39,7 +45,6 @@ final class _$ApiService extends ApiService {
       $url,
       client.baseUrl,
     );
-
     return client.send<List<Posts>, Posts>(
       $request,
       responseConverter: ResponseConverter.postsResponse,

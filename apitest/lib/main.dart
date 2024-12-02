@@ -1,4 +1,4 @@
-import 'package:apitest/http/api_service.dart';
+import 'package:apitest/datasource/remote_datasource.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,44 +29,58 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late final ApiService apiService;
+  late final RemoteDatasource apiService;
 
   @override
   void initState() {
     super.initState();
 
-    apiService = ApiService.create();
+    apiService = RemoteDatasource();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: FutureBuilder(
-      future: apiService.getUsers(),
+      future: apiService.getUser("winitest_mtest2"),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (snapshot.hasError) {
-          return Text('오류 ${snapshot.error}');
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('오류 ${snapshot.error}'),
+            ],
+          );
         }
-        final data = snapshot.data?.body;
+        final data = snapshot.data;
+        //     UserData.fromJson(snapshot.data?.body?.resultData?.first).isOverlap;
 
         // return Text('$data');
-        return ListView.separated(
-          scrollDirection: Axis.vertical,
-          itemCount: data!.length,
-          itemBuilder: (context, index) {
-            var user = data[index];
-            return Text(user.name ?? '');
-          },
-          separatorBuilder: (context, index) => const SizedBox(
-            width: 40,
-          ),
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(data!.toString()),
+          ],
         );
+        //return ListView.separated(
+        //   scrollDirection: Axis.vertical,
+        //   itemCount: data!.length,
+        //   itemBuilder: (context, index) {
+        //     var user = data[index];
+        //     return Text(user.name ?? '');
+        //   },
+        //   separatorBuilder: (context, index) => const SizedBox(
+        //     width: 40,
+        //   ),
+        // );
       },
     ) // This trailing comma makes auto-formatting nicer for build methods.
         );
   }
 }
+
+//https://medium.com/@ssindher11/exploring-sealed-classes-in-flutter-241d3e160132https://medium.com/@ssindher11/exploring-sealed-classes-in-flutter-241d3e160132
